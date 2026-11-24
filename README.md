@@ -6,6 +6,7 @@ I also run a real-estate practice, and most of my recent work is the software be
 
 #### 🔭 Featured
 
+- **[listing-alerts](https://github.com/mertmetin/listing-alerts):** a real-time MLS listing alert engine in Go, built as a distributed event pipeline. Pollers follow the live PropTx feeds (about 90K Ontario listings) into Redpanda (Kafka API); stateless change detectors work out new listings, price drops and sales; geohash-sharded matchers on a consistent-hash ring check each event against every saved search; and delivery sends email digests with per-user rate limits, retries and a dead-letter queue. Load- and chaos-tested on a 3-broker cluster: a 250K-change burst drained in 8.6 s, p99 change → alert was 103 ms at steady load, and 0 of 364,465 alerts were lost or duplicated while a detector, a matcher shard, a broker and the delivery service were killed mid-run. An auditor proves that by recomputing every expected alert ID. Matching one event against 1M saved searches takes 0.37 ms (p50). Go, Redpanda, PostgreSQL, Redis, Prometheus, Grafana, Docker, k6.
 - **[LeaseLens](https://github.com/mertmetin/leaselens) · [try it live ↗](https://mertmetin.github.io/leaselens/):** paste an Ontario lease and see which clauses the Residential Tenancies Act makes void, each explained in plain English with the exact section of the law (verified against the official statute). 26 rules, 136 tests, and fully private: it runs in your browser and the page is blocked from making any network request. TypeScript, Vite, GitHub Pages.
 - **[RESO IDX](https://github.com/mertmetin/reso-idx) · [try it live ↗](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/mertmetin/reso-idx/main/blueprint.json):** a WordPress plugin that syncs MLS® listings from any RESO Web API feed and shows them with a search block, a map and SEO-friendly listing pages, with the board's IDX display rules built in. Incremental keyset sync with retries and a safety guard against broken feeds; tested against a live Ontario feed (about 3,400 Ottawa listings with photos in three minutes). 52 tests, PHPStan, WordPress coding standards, and an end-to-end test in WordPress Playground on every push. PHP 8.1+, no build step.
 - **[Geolocation-Prediction](https://github.com/mertmetin/Geolocation-Prediction):** my uOttawa thesis, rebuilt in 2026. Predicts where Canadian Twitter users live from their tweets (61% within 161 km) and their social graph (88%). I found and fixed 7 bugs in the original research code, moved it to a stricter evaluation, and added a web demo with a map.
@@ -25,7 +26,7 @@ I also run a real-estate practice, and most of my recent work is the software be
 
 #### 🧰 Tools I use
 
-`Python` · `TypeScript` · `Ruby` · `PHP` · `React` / `React Native` · `Next.js` · `Rails` · `WordPress` · `Flask` · `FastAPI` · `Prisma` · `MySQL` · `scikit-learn` · `pandas` · `LLM APIs (Claude)` · `Stripe` · `Twilio` · `Docker` · `GitHub Actions`
+`Python` · `TypeScript` · `Go` · `Ruby` · `PHP` · `React` / `React Native` · `Next.js` · `Rails` · `WordPress` · `Flask` · `FastAPI` · `Prisma` · `PostgreSQL` · `MySQL` · `Redis` · `Kafka / Redpanda` · `scikit-learn` · `pandas` · `LLM APIs (Claude)` · `Stripe` · `Twilio` · `Docker` · `Prometheus` · `Grafana` · `GitHub Actions`
 
 #### 📫 Get in touch
 
